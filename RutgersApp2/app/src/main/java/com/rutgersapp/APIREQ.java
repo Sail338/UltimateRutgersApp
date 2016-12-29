@@ -1,6 +1,5 @@
 package com.rutgersapp;
 
-
 import okhttp3.*;
 
 import java.io.IOException;
