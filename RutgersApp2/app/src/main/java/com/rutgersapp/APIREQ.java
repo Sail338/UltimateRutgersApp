@@ -13,7 +13,7 @@ public class APIREQ {
         public static final String base = "https://rumobile.rutgers.edu/";
         public  static final String APIVERSION = "2/";
         public static final String activestops = "nbactivestops.txt";
-
+        //BuildString for active Stops and make async Request
         public  void getActiveStops(final ResponseValue value) throws IOException {
             OkHttpClient client = new OkHttpClient();
             String reponsestr;
@@ -35,5 +35,7 @@ public class APIREQ {
             });
 
         }
+
+
 
 }

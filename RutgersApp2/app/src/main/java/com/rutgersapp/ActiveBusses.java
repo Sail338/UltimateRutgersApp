@@ -17,7 +17,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class ActiveBusses extends ListFragment {
-
+    //Fragment that returns a ListView
     @Override
     public View  onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,7 @@ public class ActiveBusses extends ListFragment {
 
 
                                 try {
+
                                     //TODO after clicking on item display all stops
                                     //TODO add predictions
                                     JSONObject obj = new JSONObject(x);

@@ -18,7 +18,7 @@ import android.widget.ListView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-//TODO replace actiivty switching with fragments
+
 public class MainActivity extends FragmentActivity {
 
     private ArrayList<String> items = new ArrayList<>();
@@ -29,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Add items to main menue bar
         items.add("Bus");
         mDrawerlayout = (DrawerLayout)findViewById(R.id.drawlaw);
         view = (ListView)findViewById(R.id.left_drawer);
@@ -40,21 +40,24 @@ public class MainActivity extends FragmentActivity {
     }
     public void selectItem(int position) {
         switch (position) {
+            //switch case to switch between Fragments
             case 0:
                 ListFragment fragment = new ActiveBusses();
                 Bundle args = new Bundle();
                 FragmentManager manager = getSupportFragmentManager();
-                 manager.beginTransaction().replace(R.id.content_frame,fragment).commit();
+                manager.beginTransaction().replace(R.id.content_frame,fragment).commit();
                 break;
 
 
         }
 
     }
+    //ListViews onClickListenr for NavBar
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             selectItem(position);
+
 //            mDrawerlayout.closeDrawer(view);
         }
 
