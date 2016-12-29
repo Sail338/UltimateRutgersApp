@@ -13,7 +13,7 @@ import android.widget.ListView;
 
 import java.io.IOException;
 import java.util.ArrayList;
-
+//TODO replace actiivty switching with fragments
 public class MainActivity extends AppCompatActivity {
 
     private ArrayList<String> items = new ArrayList<>();
