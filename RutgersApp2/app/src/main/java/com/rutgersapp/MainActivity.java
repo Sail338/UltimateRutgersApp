@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         items.add("Bus");
         mDrawerlayout = (DrawerLayout)findViewById(R.id.drawlaw);
         view = (ListView)findViewById(R.id.left_drawer);
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
             selectItem(position);
 //            mDrawerlayout.closeDrawer(view);
         }
+
+
+		//change
+
     }
 
 }
