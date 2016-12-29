@@ -1,9 +1,14 @@
 package com.rutgersapp;
 
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.view.menu.ExpandedMenuView;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import org.json.JSONArray;
@@ -11,12 +16,12 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class ActiveBusses extends AppCompatActivity {
+public class ActiveBusses extends ListFragment {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public View  onCreateView(final LayoutInflater inflater, final ViewGroup container, Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_active_busses);
+
         //ideally load from a cache, but lets to that later
         APIREQ apireq = new APIREQ();
         try{
@@ -24,9 +29,12 @@ public class ActiveBusses extends AppCompatActivity {
                 @Override
                 public void onResponse(Object value) {
                         final String x = value.toString();
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
+
+                                getActivity().runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+
+
                                 try {
                                     //TODO after clicking on item display all stops
                                     //TODO add predictions
@@ -42,17 +50,20 @@ public class ActiveBusses extends AppCompatActivity {
                                     }
                                     Log.d("LENGtH", li.get(0));
 
-                                    ListView view = (ListView) findViewById(R.id.listView);
-                                    view.setAdapter(new ArrayAdapter<String>(ActiveBusses.this, android.R.layout.simple_list_item_1, li));
+                                    View view = inflater.inflate(R.layout.activity_active_busses,container,true);
+                                    ListView list;
+                                    list = (ListView)view.findViewById(R.id.listView);
+                                    list.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, li));
 
 
                                 } catch (Exception e){
                                     Log.e("ERR",e.getMessage());
                                 }
-                            }
-                        });
 
 
+
+                                    }
+                                });
 
                 }
             });
@@ -60,5 +71,6 @@ public class ActiveBusses extends AppCompatActivity {
         } catch ( Exception e){
 
         }
+        return getView();
     }
 }

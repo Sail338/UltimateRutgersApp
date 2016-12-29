@@ -2,7 +2,12 @@ package com.rutgersapp;
 
 import android.content.Intent;
 import android.provider.Settings;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.ListFragment;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v4.app.ListFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,7 +19,7 @@ import android.widget.ListView;
 import java.io.IOException;
 import java.util.ArrayList;
 //TODO replace actiivty switching with fragments
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private ArrayList<String> items = new ArrayList<>();
     private DrawerLayout mDrawerlayout;
@@ -34,17 +39,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void selectItem(int position) {
-        Intent intent = null;
-        switch(position) {
+        switch (position) {
             case 0:
-                intent = new Intent(this, ActiveBusses.class);
+                ListFragment fragment = new ActiveBusses();
+                Bundle args = new Bundle();
+                FragmentManager manager = getSupportFragmentManager();
+                 manager.beginTransaction().replace(R.id.content_frame,fragment).commit();
                 break;
-            default :
-                intent = new Intent(this, MainActivity.class); // Activity_0 as default
-                break;
+
+
         }
 
-        startActivity(intent);
     }
     private class DrawerItemClickListener implements ListView.OnItemClickListener {
         @Override
