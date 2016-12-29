@@ -28,6 +28,8 @@ public class ActiveBusses extends AppCompatActivity {
                             @Override
                             public void run() {
                                 try {
+                                    //TODO after clicking on item display all stops
+                                    //TODO add predictions
                                     JSONObject obj = new JSONObject(x);
                                     JSONArray arr = obj.getJSONArray("routes");
                                     ArrayList<String> li = new ArrayList<String>();
