@@ -14,7 +14,7 @@ public class APIREQ {
         public static final String base = "https://rumobile.rutgers.edu/";
         public  static final String APIVERSION = "2/";
         public static final String activestops = "nbactivestops.txt";
-        public static  final String nextbusbase = "http://webservices.nextbus.com/service/publicXMLFeed?a=rutgers&command=";
+        public static  final String nextbusbase = "http://webservices.nextbus.com/service/publicJSONFeed?a=rutgers&command=";
         public  static final String routeConfig = "routeConfig";
         //BuildString for active Stops and make async Request
         public  void getActiveStops(final ResponseValue value) throws IOException {
