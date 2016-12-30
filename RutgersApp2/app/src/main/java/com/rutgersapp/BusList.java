@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -29,7 +31,7 @@ public class BusList extends ListFragment {
            final String route = args.getString("routeid");
             //String stopid = args.getString("stopid");
             final ArrayList<String> stoplist = new ArrayList<>();
-            stoplist.add("gibbons");
+
             apireq.getRouteConfig(new ResponseValue() {
                 @Override
                 public void onResponse(Object value) {
@@ -57,16 +59,37 @@ public class BusList extends ListFragment {
                             @Override
                             public void onResponse(Object value) {
                                 final String val = value.toString();
+                                try {
+                                    Log.d("STOPS", val.toString());
+                                    final ArrayList<String> predictons = new ArrayList<String>();
+                                    JSONObject obj = new JSONObject(value.toString());
+                                    Log.d("SOMESTUFF",obj.getJSONArray("predictions").toString());
+                                    for(int i=0;i<obj.getJSONArray("predictions").length();i++) {
+                                        String add = obj.getJSONArray("predictions").getJSONObject(i).getString("stopTitle") +'\n';
+                                        JSONArray big_arr =obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").getJSONArray("prediction");
+                                        for (int j = 0; j < big_arr.length(); j++) {
+                                            add += big_arr.getJSONObject(j).getString("minutes") + ",";
 
-                                Log.d("STOPS", val.toString());
-                                ArrayList<String> predictons;
-                                getActivity().runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-
+                                        }
+                                        predictons.add(add);
                                     }
-                                });
+                                    getActivity().runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            View view = inflater.inflate(R.layout.activity_active_busses, container, true);
+                                            ListView view1;
+                                            view1 = (ListView) view.findViewById(R.id.listView);
+                                            view1.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, predictons));
+                                            view1.setClickable(false);
+                                            view1.setOnItemClickListener(null);
 
+
+                                        }
+                                    });
+
+                                }catch (Exception e){
+                                    Log.e("HUGERR",e.getMessage());
+                                }
                             }
                         });
 
