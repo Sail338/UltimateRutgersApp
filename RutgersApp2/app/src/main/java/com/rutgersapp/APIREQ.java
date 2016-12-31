@@ -1,7 +1,6 @@
 package com.rutgersapp;
 
 import android.util.Log;
-import android.widget.LinearLayout;
 import okhttp3.*;
 
 import java.io.IOException;
