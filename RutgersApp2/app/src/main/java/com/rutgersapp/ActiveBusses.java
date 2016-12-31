@@ -102,9 +102,6 @@ public class ActiveBusses extends ListFragment {
 
                 selectItem(nametoRoute.get(parent.getItemAtPosition(position).toString()));
 
-
-
-//            mDrawerlayout.closeDrawer(view);
         }
 
 
