@@ -64,7 +64,7 @@ public class APIREQ {
             //build URL
             String url = nextbusbase+"predictionsForMultiStops";
             for(String s:stopid){
-                url += "&stops="+routeId + "|"+s;
+                url += "&stops="+routeId + "%7Cnull%7C"+s;
 
             }
             OkHttpClient client = new OkHttpClient();
