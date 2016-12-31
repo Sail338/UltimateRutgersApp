@@ -100,19 +100,19 @@ public class BusList extends ListFragment {
                                             }
                                         });
 
-
+                                        //Iterate through predictions Array and Grab the Minutes
                                         for (int i = 0; i < obj.getJSONArray("predictions").length(); i++) {
                                             String add = jsonValues.get(i).getString("stopTitle") + '\n';
                                             Log.d("DIR",obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").toString());
 
                                             JSONArray big_arr = jsonValues.get(i).getJSONObject("direction").optJSONArray("prediction");
+                                            //For some dumb reason if only one thing then the prediction array doesnt exist,
                                             if(big_arr ==null){
                                                 JSONObject ob = jsonValues.get(i).getJSONObject("direction").optJSONObject("prediction");
                                                 String toadd = ob.getString("minutes");
                                                 add += toadd + "min";
                                             }
-
-
+                                        //Put the Added String in The Adapter List
                                          else if(big_arr !=null) {
                                                 for (int j = 0; j < big_arr.length(); j++) {
                                                     String toadd = big_arr.getJSONObject(j).getString("minutes");
