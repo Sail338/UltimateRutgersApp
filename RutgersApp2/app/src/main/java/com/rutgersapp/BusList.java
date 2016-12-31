@@ -103,23 +103,33 @@ public class BusList extends ListFragment {
 
                                         for (int i = 0; i < obj.getJSONArray("predictions").length(); i++) {
                                             String add = jsonValues.get(i).getString("stopTitle") + '\n';
-                                            JSONArray big_arr = obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").getJSONArray("prediction");
+                                            Log.d("DIR",obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").toString());
+
+                                            JSONArray big_arr = obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").optJSONArray("prediction");
+                                            if(big_arr ==null){
+                                                JSONObject ob = obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").optJSONObject("prediction");
+                                                String toadd = ob.getString("minutes");
+                                                add += toadd + "min";
+                                            }
 
 
-                                            for (int j = 0; j < big_arr.length(); j++) {
-                                                String toadd = big_arr.getJSONObject(j).getString("minutes");
-                                                if (toadd.equals("0")) {
-                                                    toadd = "<1";
+                                         else if(big_arr !=null) {
+                                                for (int j = 0; j < big_arr.length(); j++) {
+                                                    String toadd = big_arr.getJSONObject(j).getString("minutes");
+                                                    if (toadd.equals("0")) {
+                                                        toadd = "<1";
+                                                    }
+                                                    if (j != big_arr.length() - 1) {
+                                                        add += toadd + "," + " ";
+                                                    } else {
+                                                        add += toadd + " " + " min";
+                                                    }
+
                                                 }
-                                                if (j != big_arr.length() - 1) {
-                                                    add += toadd + "," + " ";
-                                                } else {
-                                                    add += toadd + " " + " min";
-                                                }
-
                                             }
                                             predictons.add(add);
                                         }
+
                                         getActivity().runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
