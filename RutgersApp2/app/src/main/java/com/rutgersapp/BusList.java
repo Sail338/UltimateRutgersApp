@@ -105,9 +105,9 @@ public class BusList extends ListFragment {
                                             String add = jsonValues.get(i).getString("stopTitle") + '\n';
                                             Log.d("DIR",obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").toString());
 
-                                            JSONArray big_arr = obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").optJSONArray("prediction");
+                                            JSONArray big_arr = jsonValues.get(i).getJSONObject("direction").optJSONArray("prediction");
                                             if(big_arr ==null){
-                                                JSONObject ob = obj.getJSONArray("predictions").getJSONObject(i).getJSONObject("direction").optJSONObject("prediction");
+                                                JSONObject ob = jsonValues.get(i).getJSONObject("direction").optJSONObject("prediction");
                                                 String toadd = ob.getString("minutes");
                                                 add += toadd + "min";
                                             }
@@ -127,6 +127,7 @@ public class BusList extends ListFragment {
 
                                                 }
                                             }
+
                                             predictons.add(add);
                                         }
 
