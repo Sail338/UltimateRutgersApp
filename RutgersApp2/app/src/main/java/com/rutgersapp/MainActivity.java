@@ -30,6 +30,7 @@ public class MainActivity extends FragmentActivity {
         view.setOnItemClickListener(new DrawerItemClickListener());
 
 
+
     }
     public void selectItem(int position) {
         switch (position) {
