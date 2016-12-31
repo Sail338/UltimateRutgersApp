@@ -1,6 +1,7 @@
 package com.rutgersapp;
 
 import android.util.Log;
+import android.widget.LinearLayout;
 import okhttp3.*;
 
 import java.io.IOException;
@@ -71,6 +72,7 @@ public class APIREQ {
             Log.d("URL",url);
             Request request = new Request.Builder().url(url).build();
             client.newCall(request).enqueue(new Callback() {
+
                 @Override
                 public void onFailure(Call call, IOException e) {
                     //throw error

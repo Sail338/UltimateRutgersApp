@@ -91,14 +91,20 @@ public class ActiveBusses extends ListFragment {
         args.putString("routeid",position);
         FragmentManager manager = getFragmentManager();
         list.setArguments(args);
-        manager.beginTransaction().replace(R.id.content_frame,list).commit();
+
+
+        manager.beginTransaction().replace(R.id.content_frame,list).addToBackStack(null).commit();
+
+
 
 
     }
     public class ItemClick implements android.widget.AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(nametoRoute.get(parent.getItemAtPosition(position).toString()));
+
+                selectItem(nametoRoute.get(parent.getItemAtPosition(position).toString()));
+
 
 
 //            mDrawerlayout.closeDrawer(view);
