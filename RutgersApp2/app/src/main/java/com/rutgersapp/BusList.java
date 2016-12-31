@@ -130,7 +130,7 @@ public class BusList extends ListFragment {
 
                                             predictons.add(add);
                                         }
-
+                                        //Setup the List view, remove the progrss bar
                                         getActivity().runOnUiThread(new Runnable() {
                                             @Override
                                             public void run() {
