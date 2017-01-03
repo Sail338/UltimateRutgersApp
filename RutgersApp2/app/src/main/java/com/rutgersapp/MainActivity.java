@@ -2,9 +2,12 @@ package com.rutgersapp;
 
 
 import android.app.ActionBar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +15,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +24,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> items = new ArrayList<>();
     private DrawerLayout mDrawerlayout;
     private ListView view;
+    private  TabAdap adap;
+    private TabLayout tabLayout;
+    private ViewPager pager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -30,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
         view = (ListView)findViewById(R.id.left_drawer);
         view.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_item,items));
         view.setOnItemClickListener(new DrawerItemClickListener());
+        //pager = (ViewPager)findViewById(R.id.view_pager);
+       // pager.setVisibility(View.GONE);
+
 
 
     }
@@ -37,10 +48,10 @@ public class MainActivity extends AppCompatActivity {
         switch (position) {
             //switch case to switch between Fragments
             case 0:
-                ListFragment fragment = new ActiveBusses();
+               Fragment fragment = new BusserMain();
                 Bundle args = new Bundle();
                 FragmentManager manager = getSupportFragmentManager();
-                manager.beginTransaction().replace(R.id.content_frame,fragment).commit();
+                manager.beginTransaction().replace(R.id.content_frame,fragment).addToBackStack(null).commit();
                 break;
 
 

@@ -48,20 +48,16 @@ class Arc{
     private Stop orig;
     private Stop next;
     String name;
-    private int[] predictions=new int[5];
+    int[] predictions=new int[5];
     boolean active;
     public Arc(Stop origStop, Stop nextStop, String busName){
         orig=origStop;
         next=nextStop;
         name=busName;
-        updatePredictions();
+        populatePredictions();
     }
-    private void updatePredictions(){
+    private void populatePredictions(){
         //populate predictions
-    }
-    public int[] getPredictions(){
-        //updatePredictions(); uncomment this if you want to update every time you call
-        return predictions;
     }
     public String toString(){
         return name+" bus will go from "+orig+" to "+next;

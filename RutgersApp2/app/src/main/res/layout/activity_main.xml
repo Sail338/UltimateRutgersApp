@@ -7,13 +7,23 @@
         android:layout_height="match_parent">
 
 
-<FrameLayout
+
+
+    <FrameLayout
 
         android:layout_width="match_parent"
         android:layout_height="match_parent"
 
-        android:id="@+id/content_frame" />
+        android:id="@+id/content_frame">
 
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:id="@+id/content_frame_real">
+
+    </FrameLayout>
+</FrameLayout>
 
 
 
@@ -25,6 +35,10 @@
               android:divider="@android:color/transparent"
               android:dividerHeight="0dp"
               android:background="#fff"/>
+
+
+
+
 
 
 
