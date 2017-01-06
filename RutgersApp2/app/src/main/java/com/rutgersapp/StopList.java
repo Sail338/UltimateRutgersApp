@@ -68,8 +68,14 @@ public class StopList extends Fragment {
 
                             List<JSONObject> jsonValues = new ArrayList<JSONObject>();
                             //Sort the predictions
-                            for (int i = 0; i < obj.getJSONArray("predictions").length(); i++) {
-                                jsonValues.add(obj.getJSONArray("predictions").getJSONObject(i));
+
+                            if(obj.optJSONArray("predictions")==null){
+                                jsonValues.add(obj.getJSONObject("predictions"));
+                            }
+                            else {
+                                for (int i = 0; i < obj.optJSONArray("predictions").length(); i++) {
+                                    jsonValues.add(obj.getJSONArray("predictions").getJSONObject(i));
+                                }
                             }
                             for (int i = 0; i < obj.getJSONArray("predictions").length(); i++) {
                                 String add = jsonValues.get(i).getString("routeTitle") + '\n';

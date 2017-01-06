@@ -138,7 +138,7 @@ public class APIREQ {
                         }
                     });
                 }catch ( Exception e){
-
+                    Log.e("APIERR",e.getMessage());
                 }
 
             }
