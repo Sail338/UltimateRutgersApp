@@ -146,4 +146,32 @@ public class APIREQ {
 
     }
 
+    //GRAB ALL BUILDINGS
+    public void getBuildings(final  ResponseValue value){
+       //return JSON of all places
+        String url =  base + APIVERSION + "laces.txt";
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder().url(url).build();
+        client.newCall(request).enqueue(new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                //throw error
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.isSuccessful()){
+                    value.onResponse(response.body().string());
+
+                }
+
+            }
+        });
+
+
+
+    }
+
+
 }
