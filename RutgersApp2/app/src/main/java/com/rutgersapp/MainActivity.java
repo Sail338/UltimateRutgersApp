@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //Add items to main menue bar
         items.add("Bus");
+        items.add("Directions");
         mDrawerlayout = (DrawerLayout)findViewById(R.id.drawlaw);
         view = (ListView)findViewById(R.id.left_drawer);
         view.setAdapter(new ArrayAdapter<String>(this, R.layout.drawer_item,items));
@@ -52,6 +53,12 @@ public class MainActivity extends AppCompatActivity {
                 Bundle args = new Bundle();
                 FragmentManager manager = getSupportFragmentManager();
                 manager.beginTransaction().replace(R.id.content_frame,fragment).addToBackStack(null).commit();
+                break;
+            case 1:
+                Fragment frag = new Directions();
+                Bundle arg = new Bundle();
+                FragmentManager manag = getSupportFragmentManager();
+                manag.beginTransaction().replace(R.id.content_frame,frag).addToBackStack(null).commit();
                 break;
 
 

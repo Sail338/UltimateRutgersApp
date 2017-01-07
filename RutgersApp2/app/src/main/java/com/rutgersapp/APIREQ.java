@@ -149,7 +149,7 @@ public class APIREQ {
     //GRAB ALL BUILDINGS
     public void getBuildings(final  ResponseValue value){
        //return JSON of all places
-        String url =  base + APIVERSION + "laces.txt";
+        String url =  base + APIVERSION + "places.txt";
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder().url(url).build();
         client.newCall(request).enqueue(new Callback() {
