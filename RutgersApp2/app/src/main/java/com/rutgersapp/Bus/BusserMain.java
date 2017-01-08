@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.rutgersapp.R;
-import com.rutgersapp.TabAdap;
+import com.rutgersapp.Adapters.TabAdap;
 
 /**
  * Created by hari on 1/3/17.

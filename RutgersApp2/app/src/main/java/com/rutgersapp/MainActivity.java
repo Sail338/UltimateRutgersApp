@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import com.rutgersapp.Adapters.TabAdap;
 import com.rutgersapp.Bus.BusserMain;
 
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<String> items = new ArrayList<>();
     private DrawerLayout mDrawerlayout;
     private ListView view;
-    private  TabAdap adap;
+    private TabAdap adap;
     private TabLayout tabLayout;
     private ViewPager pager;
     @Override

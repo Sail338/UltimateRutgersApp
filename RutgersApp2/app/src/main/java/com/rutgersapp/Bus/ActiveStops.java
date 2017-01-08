@@ -13,7 +13,6 @@ import android.widget.ArrayAdapter;
 import com.rutgersapp.API.APIREQ;
 import com.rutgersapp.R;
 import com.rutgersapp.ResponseValue;
-import com.rutgersapp.StopList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

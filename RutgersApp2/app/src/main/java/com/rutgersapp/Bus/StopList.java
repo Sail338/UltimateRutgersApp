@@ -1,4 +1,4 @@
-package com.rutgersapp;
+package com.rutgersapp.Bus;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import com.rutgersapp.API.APIREQ;
+import com.rutgersapp.R;
+import com.rutgersapp.ResponseValue;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
