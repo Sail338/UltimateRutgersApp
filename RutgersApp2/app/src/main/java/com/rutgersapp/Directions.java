@@ -55,6 +55,11 @@ public class Directions extends Fragment {
                             String title = object.getJSONObject(key).getString("title");
                             if(object.getJSONObject(key).optJSONObject("location")==null){
                                 Log.d("LOCNULLAT",title);
+                                //Hardcoding in some adresses cause Google cant find these
+                                //SKELLY FEILD
+                                //57 Dudley Rd, New Brunswick, NJ 08901
+                                //Central Heating Plant
+                                //ADR HERE
                                 //if LOCATION IS NULL DO A REVERSELOOKUP
                                 continue;
                             }

@@ -62,4 +62,25 @@ class Arc{
     public String toString(){
         return name+" bus will go from "+orig+" to "+next;
     }
+
+
+}
+ class Building {
+    private String title;
+    private  String latitude;
+    private  String longitude;
+    public  Building(String title,String longitude,String latitude){
+        this.title = title;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    //DONT CHANGE THE TOSTRING, THE AUTO COMPLETE USES THIS
+    @Override
+    public  String toString(){
+        return  this.title;
+    }
+
+    //if needed can write another method to output tittle, lat and lng
+
 }
