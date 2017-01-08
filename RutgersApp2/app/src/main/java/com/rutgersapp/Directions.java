@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import com.rutgersapp.API.APIREQ;
 import org.json.JSONObject;
 
 import java.util.ArrayList;

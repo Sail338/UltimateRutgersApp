@@ -1,6 +1,7 @@
-package com.rutgersapp;
+package com.rutgersapp.API;
 
 import android.util.Log;
+import com.rutgersapp.ResponseValue;
 import okhttp3.*;
 import org.json.JSONArray;
 import org.json.JSONObject;

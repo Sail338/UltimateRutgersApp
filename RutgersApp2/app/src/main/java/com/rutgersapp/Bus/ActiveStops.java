@@ -1,8 +1,7 @@
-package com.rutgersapp;
+package com.rutgersapp.Bus;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.ListFragment;
 import android.util.Log;
@@ -11,6 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import com.rutgersapp.API.APIREQ;
+import com.rutgersapp.R;
+import com.rutgersapp.ResponseValue;
+import com.rutgersapp.StopList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 

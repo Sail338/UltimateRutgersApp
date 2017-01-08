@@ -3,8 +3,9 @@ package com.rutgersapp;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.util.Log;
+import com.rutgersapp.Bus.ActiveBusses;
+import com.rutgersapp.Bus.ActiveStops;
 
 /**
  * Created by hari on 1/2/17.

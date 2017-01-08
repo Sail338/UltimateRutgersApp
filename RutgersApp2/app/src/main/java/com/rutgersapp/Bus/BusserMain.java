@@ -1,4 +1,4 @@
-package com.rutgersapp;
+package com.rutgersapp.Bus;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,8 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.rutgersapp.R;
+import com.rutgersapp.TabAdap;
 
 /**
  * Created by hari on 1/3/17.
