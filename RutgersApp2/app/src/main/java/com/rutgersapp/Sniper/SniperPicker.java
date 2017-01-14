@@ -21,7 +21,15 @@ public class SniperPicker extends Fragment {
         v = view;
         return view;
     }
+    public void populateArrAdapterForCourses(){
+        
+
+    }
 
 
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
 
+        super.onActivityCreated(savedInstanceState);
+    }
 }
