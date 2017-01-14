@@ -21,6 +21,7 @@ public class APIREQ {
         public static final String activestops = "nbactivestops.txt";
         public static  final String nextbusbase = "http://webservices.nextbus.com/service/publicJSONFeed?a=rutgers&command=";
         public  static final String routeConfig = "routeConfig";
+        public  static  final String classurl = "http://sis.rutgers.edu/soc/subjects.json?semester=12017&campus=NB&level=U%2CG";
         //BuildString for active Stops and make async Request
         public  void getActiveStops(final ResponseValue value) throws IOException {
             final OkHttpClient client = new OkHttpClient();
@@ -176,5 +177,27 @@ public class APIREQ {
 
     }
 
+    /**
+     * Make Request To SOC and grab te JSON obj of all departments
+     *
+     */
+    public  void grabDeparment(final ResponseValue value){
+        OkHttpClient client = new OkHttpClient();
+        final Request request = new Request.Builder().url(classurl).build();
+        client.newCall(request).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
 
+            }
+            //put the huge ass JSON
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                if(response.isSuccessful()){
+                    value.onResponse(response.body().string());
+                }
+
+            }
+        });
+    }
 }
