@@ -72,10 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
 //            mDrawerlayout.closeDrawer(view);
         }
-
-
 		//change
-
     }
 
 }
