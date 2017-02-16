@@ -1,7 +1,12 @@
 var express = require('express')
 var http = require('http')
 var app = express()
-
+var  sqlite3 = require('sqlite3').verbose()
+var db = new sqlite3.Database(':information:');
+db.serialize(function(){
+	db.run('CREATE TABLE information (email text, subject text, course text,section text)')
+	db.close();
+});
 app.get('/sniper',function(req,res) {
 	//create get request based on params from sent requesrt
 	//grab the params
@@ -18,6 +23,11 @@ app.get('/sniper',function(req,res) {
 		});
 
 		response.on('end',function(chunk) {
+			db.serialize(function(){
+				db.run("INSERT INTO information (email,subject,course,section)")
+				db.close()
+				
+			})
 			res.send(str)
 		});
 

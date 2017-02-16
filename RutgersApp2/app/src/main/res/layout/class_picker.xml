@@ -1,21 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
+              xmlns:tools="http://schemas.android.com/tools" android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
-    
-    <Spinner android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:id="@+id/spinner">
 
-
-    </Spinner>
+    <TextView
+            android:text="Subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView" tools:text="Subject"/>
     <AutoCompleteTextView
             android:text="AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView"/>
+    <TextView
+            android:text="Course Number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView2" tools:text="Course Number"/>
     <AutoCompleteTextView
             android:text="AutoCompleteTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView2"/>
+    <TextView
+            android:text="Section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView3" tools:text="Section"/>
+    <AutoCompleteTextView
+            android:text="AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView3"/>
+    <TextView
+            android:text="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView4" tools:text="Email"/>
+    <AutoCompleteTextView
+            android:text="AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView4"/>
 
 </LinearLayout>
