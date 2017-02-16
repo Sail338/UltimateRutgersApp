@@ -9,5 +9,13 @@
 
 
     </Spinner>
+    <AutoCompleteTextView
+            android:text="AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView"/>
+    <AutoCompleteTextView
+            android:text="AutoCompleteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/autoCompleteTextView2"/>
 
 </LinearLayout>
